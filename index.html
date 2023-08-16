@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href="css/style.css">
+        <title> KALKULATOR SEGITIGA</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>TRIANGLE CALCULATOR v1</h1>
+        </header>
+        
+        <main>
+ 
+<!--INTRO--> 
+            <section class="intro">
+                <p>Welcome to triangle calculator v1</p>
+                <p>a simple web project to calculate the triangle area and perimeter</p>
+            </section>
+
+<!--TABS-->
+            <div class="pilih">
+                <button class="pilihlink" onclick="openCity(event, 'Area')" id="defaultOpen">Area</button>
+                <button class="pilihlink" onclick="openCity(event, 'Perimeter')">Perimeter</button>
+            </div>
+    
+<!--AREA-->            
+            <div id="Area" class="tabcontent">
+            <section class="image">                
+                <img src="D:\CODE\SE\asset\triangle.PNG" alt="Triangle ilustration">
+            </section>
+            <section class="explain-section">
+                <h3>Triangle Area Formula:</h3>
+                <p class="formula"> A=0.5xBxH</p>
+                <p>Where:</p>
+                <p>A=Area</p>
+                <p>H=Height</p>
+                <p>B=Base</p>
+            </section>
+
+            <form>
+            <section class="input-section">
+                <label for="height-input">Height</label>
+                <input type="number" id="heightInput" placeholder="0">
+                <label for="base-input">Base</label>
+                <input type="number" id="baseInput" placeholder="0">
+            </section>
+
+            <!--cek lagi-->
+            <section class="result"> 
+                <h3>
+                    Area of triangle:<span id="display"></span> 
+                </h3>                       
+            </section>    
+            
+            <section class="btn">
+                <button type="button" class="calculate" onclick="calculateArea()">Calculate</button>
+                <button type="reset" class="reset">Reset</button>
+            </section>
+            </form>
+            </div>
+
+ <!--KELILING-->           
+            <div id="Perimeter" class="tabcontent">
+                <section class="image">                    
+                    <img src="D:\CODE\SE\asset\triangle.PNG" alt="Triangle ilustration">
+                </section>
+                <section class="explain-section">
+                    <h3>Triangle Perimeter Formula:</h3>
+                    <p class="formula"> P=a+b+c</p>
+                    <p>Where:</p>
+                    <p>P=Perimeter</p>
+                    <p>a=Length A</p>
+                    <p>b=Length B</p>
+                    <p>c=Length C</p>                    
+                </section>
+
+                <form class="keliling">
+                <section class="input-section">
+                    <label for="a-input">a</label>
+                    <input type="number" id="a-input" placeholder="0">
+                    <label for="b-input">b</label>
+                    <input type="number" id="b-input" placeholder="0">
+                    <label for="c-input">c</label>
+                    <input type="number" id="c-input" placeholder="0">
+                </section>
+    
+                <section class="result"> <!--cek lagi-->
+                    <h3>Perimeter of triangle:<span id="show"></span>
+                    </h3>
+                </section>   
+                
+                <section class="btn">
+                    <button type="button" class="calculate" onclick="calculateCircumference()">Calculate</button>
+                    <button type="reset" class="reset">Reset</button>
+                </section>
+                </form>
+            </div>
+
+<!--JS-->            
+            <script>
+
+                //FUNGSI TAB//
+                function openCity(evt, cityName) {
+                  var i, tabcontent, pilihlink;
+                  tabcontent = document.getElementsByClassName("tabcontent");
+                  for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                  }
+                  tablinks = document.getElementsByClassName("tablinks");
+                  for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = pilihlink[i].className.replace(" active", "");
+                  }
+                  document.getElementById(cityName).style.display = "block";
+                  evt.currentTarget.className += " active";                
+                }
+                document.getElementById("defaultOpen").click();
+
+                //FUNGSI AREA//
+                function calculateArea() {
+                    var a = document.getElementById("heightInput").value;
+                    var b = document.getElementById("baseInput").value;             
+                
+                    area_result = parseFloat(a) * parseFloat(b) / 2;
+                    
+                    document.getElementById("display").innerHTML = area_result;
+                }
+
+                //FUNGSI PERIMETER//
+                function calculateCircumference() {
+                    var a = (document.getElementById("a-input")).value;
+                    var b = (document.getElementById("b-input")).value;
+                    var c = (document.getElementById("c-input")).value;             
+                
+                    perimeter_result = parseFloat(a) + parseFloat(b) +parseFloat(c);
+                    
+                    document.getElementById("show").innerHTML = perimeter_result;
+                }                 
+                
+            </script>
+
+            
+
+        </main>
+        <footer>This is mini project from RevoU by Fidelis Aldo Widhi Pangestu</footer>
+    </body>
+   
