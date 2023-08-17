@@ -15,6 +15,10 @@ header {
     font-size: 16px;
     text-align: center;
 }    
+.command {
+    text-align: center;
+    color: #071952;
+}
 .explain-section {
     display: block;
     border:2px solid #071952;
